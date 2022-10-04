@@ -1,0 +1,15 @@
+{
+  "name": "vj_distribute",
+  "version": "1.0.0",
+  "description": "Distribute the solved problems of vjudge contest among top perticipants randomly",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "vj_distribute": "node index.js"
+  },
+  "author": "shadmansaleh",
+  "license": "GPL-3",
+  "dependencies": {
+    "vjudge-api": "^1.0.1"
+  }
+}
