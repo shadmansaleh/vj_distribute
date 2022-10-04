@@ -1,7 +1,8 @@
 import Vjudge from "vjudge-api";
 import fs from "fs";
+import path from "path";
 
-let OUTPUT_FILE = "./DistributedList.txt";
+let OUTPUT_FILE = "DistributedList.txt";
 let CONTEST_ID = 517287;
 let TOP_SELECT = 15;
 let MAX_PROBLEM_PER_PERSON = 2;
@@ -17,10 +18,10 @@ let IGNORED_IDS = [
 ];
 
 async function get_data(contest_id) {
-  if (!fs.existsSync("./cache/")) fs.mkdirSync("./cache/");
-  if (fs.existsSync(`./cache/data-${contest_id}.json`)) {
+  if (!fs.existsSync('cache')) fs.mkdirSync("cache");
+  if (fs.existsSync(path.join('cache', `data-${contest_id}.json`))) {
     try {
-      let data = await fs.promises.readFile(`./cache/data-${contest_id}.json`);
+      let data = await fs.promises.readFile(path.join('cache', `data-${contest_id}.json`));
       return JSON.parse(data);
     } catch (err) {
       throw err;
@@ -41,6 +42,7 @@ async function get_data(contest_id) {
       process.stdout.write(
         `\rGet data: (${opts.start} - ${opts.start + opts.length})`
       );
+      process.stdout.write('\r')
       try {
         let dat = await Vjudge.contest_status(opts);
         data = data.concat(dat.data);
@@ -52,7 +54,7 @@ async function get_data(contest_id) {
     }
     let json_str = JSON.stringify(data, null, 4);
     try {
-      await fs.promises.writeFile(`./cache/data-${contest_id}.json`, json_str);
+      await fs.promises.writeFile(path.join('cache', `data-${contest_id}.json`), json_str);
     } catch (err) {
       throw err;
     }
