@@ -1,10 +1,17 @@
 ### VJ_Distribute
 Distribute the solved problems of vjudge contest among top perticipants randomly
 
+### Setting Up
 
-Uses:
+```sh
+git clone --depth 1 https://github.com/shadmansaleh/vj_distribute
+cd vj_distribute
+npm install
 ```
-vj_dist <ContestId> <OutputFile> <TopSelect> <MaxProblemPerPerson> <Ignored_Id> <IgnoredId>...
+
+### Uses
+```
+npm run vj_dist <ContestId> <OutputFile> <TopSelect> <MaxProblemPerPerson> <Ignored_Id> <IgnoredId>...
 
 Distribute the solved problems of vjudge contest among top perticipants randomly
 
