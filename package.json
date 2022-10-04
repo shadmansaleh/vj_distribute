@@ -2,10 +2,10 @@
   "name": "vj_distribute",
   "version": "1.0.0",
   "description": "Distribute the solved problems of vjudge contest among top perticipants randomly",
-  "main": "index.js",
+  "main": "src/vj_distribute.js",
   "type": "module",
   "scripts": {
-    "vj_distribute": "node index.js"
+    "vj_distribute": "node src/vj_distribute.js"
   },
   "author": "shadmansaleh",
   "license": "GPL-3",
